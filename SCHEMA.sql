@@ -68,3 +68,22 @@ alter table productos add constraint precio_ck Check
 
 alter table clientes add constraint telefono_ck Check
 (telefono > 0 ); 
+
+
+
+insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('1','pedrito','123','PRO','FIS');
+insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('2','jairo','1','PRO','FIS');
+insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('3','Juana','123','ADM','');
+
+
+insert into productos ( codigo, descripcion, precio,proveedorp) values ('001','Queque seco',1500,'1');
+insert into productos ( codigo, descripcion, precio,proveedorp) values ('002','Queque mojado',2000,'1');
+
+insert into clientes ( identificacionc, nombrec, correo,telefono,proveedorc) values ('gvega','Gabriel Vega','gvega@gmail.com',11111111,'1');
+
+
+insert into facturas (identificacion_usuario, identificacion_cliente) values ('1', 'gvega');
+
+
+insert into detalles (idfacdetalle, codigoproducto, cantidad, descripciondetalle, valorfinal) values (5, 1, 2, 'Queque seco', 3000.0);
+insert into detalles (idfacdetalle, codigoproducto, cantidad, descripciondetalle, valorfinal) values (6, 2, 1, 'Queque mojado', 2000.0);

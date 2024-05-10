@@ -6,11 +6,11 @@ class App {
 
     constructor() {
         this.state = {};
-        // this.dom = this.render();
-        // this.modal = new bootstrap.Modal(this.dom.querySelector('#app>#modal'));
-        // this.dom.querySelector('#app>#modal #apply').addEventListener('click', e => this.login());
-        // this.renderBodyFiller();
-        // this.renderMenuItems();
+        this.dom = this.render();
+        this.modal = new bootstrap.Modal(this.dom.querySelector('#app>#modal'));
+        this.dom.querySelector('#app>#modal #apply').addEventListener('click', e => this.login());
+        this.renderBodyFiller();
+        this.renderMenuItems();
     }
 
     render=()=>{
@@ -31,14 +31,15 @@ class App {
         <nav id="menu" class="navbar navbar-expand-lg p-0 navbar-dark bg-dark">
           <div class="container-fluid">
             <a class="navbar-brand  font-italic font-weight-light  text-info" href="#">
-                <img src="images/logo.png" class="logo rounded-circle" alt="logo">
-                countries
+                <img src="../images/headerLogo.jpg" class="logo rounded-circle" alt="logo">
+                Factura Electronica Inc.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuCollapse">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div id="menuCollapse" class="collapse navbar-collapse" >
               <ul class="navbar-nav me-auto mb-2 mb-lg-0" id='menuItems'>
+            
               </ul>
             </div>
           </div>
@@ -53,17 +54,17 @@ class App {
     }
     renderFooter=()=>{
         return `
-        <footer id="footer" class="bg-dark text-white mt-4 w-100 fixed-bottom">
+        <footer id="footer"  class="mt-4 w-100 fixed-bottom header-footer ">
             <div class="container-fluid py-2">
 
                 <div class="row">
-                    <div class="col-md-2"><h5>Total Soft Inc.</h5></div>
+                    <div class="col-md-2"><h5>Factura Electronica Inc.</h5></div>
                     <div class="col-md-7"><h4>
                         <i class="fab fa-twitter"></i>
                         <i class="fab fa-facebook"></i>
                         <i class="fab fa-instagram"></i></h4>
                     </div>
-                    <div class="col-md-3 text-right small align-self-end">©2023 Tsf, Inc.</div>
+                    <div class="col-md-3 text-right small align-self-end">©2023 FE, Inc.</div>
                 </div>
             </div>
         </footer> 
@@ -76,7 +77,7 @@ class App {
            <div class="modal-dialog">
                <div class="modal-content">
                    <div class="modal-header" >
-                       <img class="img-circle" id="img_logo" src="images/user.png" style="max-width: 50px; max-height: 50px" alt="logo">
+                       <img class="img-circle" id="img_logo" src="/images/user.png" style="max-width: 50px; max-height: 50px" alt="logo">
                        <span style='margin-left:4em;font-weight: bold;'>Login</span> 
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                    </div>
@@ -110,7 +111,7 @@ class App {
         var html= `
         <div id='bodyFiller' style='margin-left: 10%; margin-top:100px; width: 80%; text-align: center; font-size: 1.5em'>
             <p>Informacón de los paises del mundo.</p>
-            <img src="../../static/images/headerLogo.jpg" class="filler rounded-circle" alt="headerLogo.jpg">
+            <img src="../images/headerLogo.jpg" class="filler rounded-circle" alt="headerLogo.jpg">
         </div>
     `;
         this.dom.querySelector('#app>#body').replaceChildren();
@@ -118,26 +119,64 @@ class App {
     }
 
     renderMenuItems=()=> {
-
+        var html='';
+        if(globalstate.user===null){
+            html+=`
+              <li class="nav-item">
+                  <a class="nav-link" id="login" href="#" data-bs-toggle="modal"> <span><i class="fa fa-address-card"></i></span> Login </a>
+              </li>
+            `;
+        }else{
+            if(globalstate.user.tipo==='PRO'){
+                html+=`
+                    <li class="nav-item">
+                        <a class="nav-link" id="clientes" href="#"> <span><i class="fas fa-file-alt"></i></span> Clientes </a>
+                        <a class="nav-link" id="clientes" href="#"> <span><i class="fas fa-file-alt"></i></span> Productos </a>
+                        <a class="nav-link" id="clientes" href="#"> <span><i class="fas fa-file-alt"></i></span> Facturas </a>
+                    </li>
+                `;
+            }
+            if(globalstate.user.tipo==='ADM'){
+                html+=`
+                `;
+            }
+            html+=`
+              <li class="nav-item">
+                  <a class="nav-link" id="logout" href="#" data-bs-toggle="modal"> <span><i class="fas fa-power-off"></i></span> Logout (${globalstate.user.identificacion}) </a>
+              </li>
+            `;
+        };
+        this.dom.querySelector('#app>#menu #menuItems').replaceChildren();
+        this.dom.querySelector('#app>#menu #menuItems').innerHTML=html;
+        // this.dom.querySelector("#app>#menu #menuItems #countries")?.addEventListener('click',e=>this.countriesShow());
+        this.dom.querySelector("#app>#menu #menuItems #login")?.addEventListener('click',e=>this.modal.show());
+        this.dom.querySelector("#app>#menu #menuItems #logout")?.addEventListener('click',e=>this.logout());
+        if(globalstate.user!==null){
+            switch(globalstate.user.tipo){
+                case 'PRO':
+                    // this.countriesShow();
+                    break;
+            }
+        }
     }
 
     login = async () => {
         const form = document.querySelector("#form");
         const formData = new FormData(form);
-        const candidate = Object.fromEntries(formData.entries());
-        candidate.rol = '';
+        const id = formData.get('identificacion');
+        const contrasena = formData.get('clave');
         try {
-            const response = await fetch(backend, {
+            const response = await fetch(backend+`/usuarios/findUsuario?id=${id}&contrasena=${contrasena}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(candidate)
             });
 
             if (response.ok) {
                 const userData = await response.json();
                 globalstate.user = userData;
+                globalstate.user.tipo = userData.tipo
                 this.modal.hide();
                 this.renderMenuItems();
             } else {
@@ -151,4 +190,13 @@ class App {
         }
     }
 
+
+    logout= async ()=>{
+        // invoque backend for login
+        globalstate.user=null;
+        this.dom.querySelector('#app>#body').replaceChildren();
+        this.renderBodyFiller();
+        this.renderMenuItems();
+        let request = new Request(`${backend}/login`, {method: 'DELETE', headers: { }});
+    }
 }

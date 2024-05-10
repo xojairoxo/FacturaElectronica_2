@@ -1,4 +1,4 @@
-var backend="http://localhost:8080/facturaElectronica/api";
+var backend="http://localhost:8080";
 
 var globalstate={user:null};
 
