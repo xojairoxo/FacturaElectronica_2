@@ -26,6 +26,14 @@ public class UsuariosService {
             throw  new ResponseStatusException(STATUS.NOT_FOUND.getStatus() , "Usuario no encontrado");
         }
     }
+    @DeleteMapping("/deleteUsuario")
+    public void deleteUsuario(@RequestParam String id) {
+        try {
+            usuariosRepository.deleteById(id);
+        } catch (Exception e) {
+            throw  new ResponseStatusException(STATUS.NOT_FOUND.getStatus() , "Usuario no encontrado");
+        }
+    }
 
 
 }

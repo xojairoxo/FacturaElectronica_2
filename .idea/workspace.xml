@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78a503f-83a8-4594-b430-bb524353371b" name="Changes" comment="FIST COMMIT" />
+    <list default="true" id="b78a503f-83a8-4594-b430-bb524353371b" name="Changes" comment="FIST COMMIT">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/clientes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCHEMA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SCHEMA.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/logic/UsuariosEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/logic/UsuariosEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/services/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/services/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/services/UsuariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/services/UsuariosService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/statusHttp/STATUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/una/ac/cr/facturaelectronica_2/statusHttp/STATUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/Usuarios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,37 +62,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JPA.DatabaseSchemaImportDialog": "3e92da01-38c9-4af5-abf2-6fdad8c30d7d",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.FacturaElectronica2Application.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Progra IV/FacturaElectronica_2/src/main/resources/static/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;3e92da01-38c9-4af5-abf2-6fdad8c30d7d&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.FacturaElectronica2Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Progra IV/FacturaElectronica_2/src/main/resources/static/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Angular17Html"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Angular17Html&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Progra IV\FacturaElectronica_2\src\main\resources\static\images" />
@@ -123,6 +135,7 @@
       <workItem from="1715110299757" duration="2344000" />
       <workItem from="1715114534227" duration="3359000" />
       <workItem from="1715316791409" duration="11456000" />
+      <workItem from="1715367489464" duration="7072000" />
     </task>
     <task id="LOCAL-00001" summary="FIST COMMIT">
       <option name="closed" value="true" />
@@ -141,21 +154,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="FIST COMMIT" />
     <option name="LAST_COMMIT_MESSAGE" value="FIST COMMIT" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/resources/static/js/app.js</url>
-          <line>83</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/resources/static/js/app.js</url>
-          <line>95</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

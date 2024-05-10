@@ -18,6 +18,7 @@ public enum STATUS {
     BAD_GATEWAY(HttpStatus.BAD_GATEWAY),
     SERVICE_UNAVAILABLE(HttpStatus.SERVICE_UNAVAILABLE);
 
+
     private final HttpStatus status;
 
     STATUS(HttpStatus status) {

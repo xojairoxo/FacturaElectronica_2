@@ -2,15 +2,16 @@ class App {
     dom;
     modal; // login modal
     state;  // state variables: if any
-
+    clientes; // clientes view
 
     constructor() {
         this.state = {};
         this.dom = this.render();
-        this.modal = new bootstrap.Modal(this.dom.querySelector('#app>#modal'));
         this.dom.querySelector('#app>#modal #apply').addEventListener('click', e => this.login());
         this.renderBodyFiller();
         this.renderMenuItems();
+       this.clientes = new Clientes();
+        this.modal = new bootstrap.Modal(this.dom.querySelector('#app>#modal'));
     }
 
     render=()=>{
@@ -24,6 +25,10 @@ class App {
         rootContent.id='app';
         rootContent.innerHTML=html;
         return rootContent;
+    }
+    clientesShow=()=>{
+        this.dom.querySelector('#app>#body').replaceChildren(this.clientes.dom);
+        this.clientes.list();
     }
 
     renderMenu=()=>{
@@ -120,6 +125,7 @@ class App {
 
     renderMenuItems=()=> {
         var html='';
+
         if(globalstate.user===null){
             html+=`
               <li class="nav-item">
@@ -142,19 +148,19 @@ class App {
             }
             html+=`
               <li class="nav-item">
-                  <a class="nav-link" id="logout" href="#" data-bs-toggle="modal"> <span><i class="fas fa-power-off"></i></span> Logout (${globalstate.user.identificacion}) </a>
+                  <a class="nav-link" id="logout" href="#" data-bs-toggle="modal"> <span><i class="fas fa-power-off"></i></span> Logout (${globalstate.user.identificacionu}) </a>
               </li>
             `;
         };
         this.dom.querySelector('#app>#menu #menuItems').replaceChildren();
         this.dom.querySelector('#app>#menu #menuItems').innerHTML=html;
-        // this.dom.querySelector("#app>#menu #menuItems #countries")?.addEventListener('click',e=>this.countriesShow());
+        this.dom.querySelector("#app>#menu #menuItems #clientes")?.addEventListener('click',e=>this.clientesShow());
         this.dom.querySelector("#app>#menu #menuItems #login")?.addEventListener('click',e=>this.modal.show());
         this.dom.querySelector("#app>#menu #menuItems #logout")?.addEventListener('click',e=>this.logout());
         if(globalstate.user!==null){
             switch(globalstate.user.tipo){
                 case 'PRO':
-                    // this.countriesShow();
+                    this.clientesShow();
                     break;
             }
         }
@@ -177,6 +183,7 @@ class App {
                 const userData = await response.json();
                 globalstate.user = userData;
                 globalstate.user.tipo = userData.tipo
+                globalstate.user.identificacionu = userData.identificacionu
                 this.modal.hide();
                 this.renderMenuItems();
             } else {
@@ -186,7 +193,7 @@ class App {
             }
         } catch (error) {
             console.error('Login error:', error);
-            errorMessage('Network error');
+            errorMessage(error);
         }
     }
 

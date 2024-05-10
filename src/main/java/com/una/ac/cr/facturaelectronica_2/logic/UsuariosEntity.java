@@ -26,12 +26,12 @@ public class UsuariosEntity {
     @Basic
     @Column(name = "aprobado")
     private byte aprobado;
-    @OneToMany(mappedBy = "usuariosByProveedorc")
-    private Collection<ClientesEntity> clientesByIdentificacionu;
-    @OneToMany(mappedBy = "usuariosByIdentificacionUsuario")
-    private Collection<FacturasEntity> facturasByIdentificacionu;
-    @OneToMany(mappedBy = "usuariosByProveedorp")
-    private Collection<ProductosEntity> productosByIdentificacionu;
+//    @OneToMany(mappedBy = "usuariosByProveedorc")
+//    private Collection<ClientesEntity> clientesByIdentificacionu;
+//    @OneToMany(mappedBy = "usuariosByIdentificacionUsuario")
+//    private Collection<FacturasEntity> facturasByIdentificacionu;
+//    @OneToMany(mappedBy = "usuariosByProveedorp")
+//    private Collection<ProductosEntity> productosByIdentificacionu;
 
     public String getIdentificacionu() {
         return identificacionu;
@@ -94,27 +94,27 @@ public class UsuariosEntity {
         return Objects.hash(identificacionu, nombreu, contrasenia, tipo, tipoPersona, aprobado);
     }
 
-    public Collection<ClientesEntity> getClientesByIdentificacionu() {
-        return clientesByIdentificacionu;
-    }
-
-    public void setClientesByIdentificacionu(Collection<ClientesEntity> clientesByIdentificacionu) {
-        this.clientesByIdentificacionu = clientesByIdentificacionu;
-    }
-
-    public Collection<FacturasEntity> getFacturasByIdentificacionu() {
-        return facturasByIdentificacionu;
-    }
-
-    public void setFacturasByIdentificacionu(Collection<FacturasEntity> facturasByIdentificacionu) {
-        this.facturasByIdentificacionu = facturasByIdentificacionu;
-    }
-
-    public Collection<ProductosEntity> getProductosByIdentificacionu() {
-        return productosByIdentificacionu;
-    }
-
-    public void setProductosByIdentificacionu(Collection<ProductosEntity> productosByIdentificacionu) {
-        this.productosByIdentificacionu = productosByIdentificacionu;
-    }
+//    public Collection<ClientesEntity> getClientesByIdentificacionu() {
+//        return clientesByIdentificacionu;
+//    }
+//
+//    public void setClientesByIdentificacionu(Collection<ClientesEntity> clientesByIdentificacionu) {
+//        this.clientesByIdentificacionu = clientesByIdentificacionu;
+//    }
+//
+//    public Collection<FacturasEntity> getFacturasByIdentificacionu() {
+//        return facturasByIdentificacionu;
+//    }
+//
+//    public void setFacturasByIdentificacionu(Collection<FacturasEntity> facturasByIdentificacionu) {
+//        this.facturasByIdentificacionu = facturasByIdentificacionu;
+//    }
+//
+//    public Collection<ProductosEntity> getProductosByIdentificacionu() {
+//        return productosByIdentificacionu;
+//    }
+//
+//    public void setProductosByIdentificacionu(Collection<ProductosEntity> productosByIdentificacionu) {
+//        this.productosByIdentificacionu = productosByIdentificacionu;
+//    }
 }

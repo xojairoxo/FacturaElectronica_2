@@ -71,7 +71,7 @@ alter table clientes add constraint telefono_ck Check
 
 
 
-insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('1','pedrito','123','PRO','FIS');
+insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona,aprobado) values ('1','pedrito','123','PRO','FIS',true);
 insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('2','jairo','1','PRO','FIS');
 insert into usuarios (identificacionu,nombreu,contrasenia,tipo,tipo_Persona) values ('3','Juana','123','ADM','');
 
@@ -80,6 +80,9 @@ insert into productos ( codigo, descripcion, precio,proveedorp) values ('001','Q
 insert into productos ( codigo, descripcion, precio,proveedorp) values ('002','Queque mojado',2000,'1');
 
 insert into clientes ( identificacionc, nombrec, correo,telefono,proveedorc) values ('gvega','Gabriel Vega','gvega@gmail.com',11111111,'1');
+insert into clientes ( identificacionc, nombrec, correo,telefono,proveedorc) values ('123','Cesar','cesar@gmail.com',11111111,'2');
+insert into clientes ( identificacionc, nombrec, correo,telefono,proveedorc) values ('111','Pepe','pepe@gmail.com',22222,'2');
+insert into clientes ( identificacionc, nombrec, correo,telefono,proveedorc) values ('555','Juana','juana@gmail.com',333333,'2');
 
 
 insert into facturas (identificacion_usuario, identificacion_cliente) values ('1', 'gvega');
@@ -87,3 +90,7 @@ insert into facturas (identificacion_usuario, identificacion_cliente) values ('1
 
 insert into detalles (idfacdetalle, codigoproducto, cantidad, descripciondetalle, valorfinal) values (5, 1, 2, 'Queque seco', 3000.0);
 insert into detalles (idfacdetalle, codigoproducto, cantidad, descripciondetalle, valorfinal) values (6, 2, 1, 'Queque mojado', 2000.0);
+
+
+
+select * from usuarios;
